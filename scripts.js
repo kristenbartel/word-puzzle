@@ -12,6 +12,8 @@
 // let userInput = document.getElementById('userInput');
 let lettersContainer = document.getElementById('lettersContainer');
 let inputContainer = document.getElementById('inputContainer');
+let deleteButton = document.getElementById('deleteButton');
+
 
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json())
@@ -41,6 +43,11 @@ fetch (`https://freebee.fun//cgi-bin/random`)
             e.preventDefault();
             inputContainer.innerHTML+= letterButton.value;
         })
-       
 })
 })
+
+deleteButton.addEventListener('click', () => {
+    let input  = String(inputContainer.innerText);
+    let newString = input.slice(0, -1);
+    inputContainer.innerHTML = newString;
+}) 
