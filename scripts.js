@@ -19,14 +19,14 @@ fetch (`https://freebee.fun//cgi-bin/random`)
             // console.log(getLetters.letters);
     let centerLetter = getLetters.center;
             // console.log(centerLetter);
-    let centerButton = document.createElement('button');
-    centerButton.setAttribute('id', 'centerButton');
-    centerButton.setAttribute('value', centerLetter);
-    centerButton.innerText = centerButton.value;
-    lettersContainer.appendChild(centerButton);
-    centerButton.addEventListener('click', (e) => {
+    let centerLetButton = document.createElement('button');
+    centerLetButton.setAttribute('id', 'centerButton');
+    centerLetButton.setAttribute('value', centerLetter);
+    centerLetButton.innerText = centerLetButton.value;
+    lettersContainer.appendChild(centerLetButton);
+    centerLetButton.addEventListener('click', (e) => {
         e.preventDefault();
-        inputContainer.innerHTML+= centerButton.value;
+        inputContainer.innerHTML+= centerLetButton.value;
 })
     let letters = getLetters.letters.split('');      
             // console.log(letters);
