@@ -9,8 +9,9 @@
 // 6)else userInput it NOT in "wordlist" then alert and clear userInput 
 // 7) if "center" is not included in userInput then alert and clear userInput
 // 8) create delete button for userInput
-let userInput = document.getElementById('userInput');
+// let userInput = document.getElementById('userInput');
 let lettersContainer = document.getElementById('lettersContainer');
+let inputContainer = document.getElementById('inputContainer');
 
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json())
@@ -27,7 +28,7 @@ fetch (`https://freebee.fun//cgi-bin/random`)
         lettersContainer.appendChild(letterButton);
         letterButton.addEventListener('click', (e) => {
             e.preventDefault();
-            e.userInput.innerHTML = letterButton.value;
+            inputContainer.innerHTML+= letterButton.value;
         })
         
     })
