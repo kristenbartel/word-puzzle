@@ -15,6 +15,7 @@ let lettersContainer = document.getElementById('lettersContainer');
 let inputContainer = document.getElementById('inputContainer');
 let deleteButton = document.getElementById('deleteButton');
 let submitButton = document.getElementById('submitButton');
+let correctAnswers = document.getElementById('correctAnswers');
 
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json())
@@ -45,10 +46,26 @@ fetch (`https://freebee.fun//cgi-bin/random`)
             inputContainer.innerHTML+= letterButton.value;
         })
 })
-    let correctWordsList = getData.wordlist;
-            // console.log(correctWordsList)
-            // add listener that uses conditional "while" to check against correctWordsList
+correctAnswersArr = [];
+submitButton.addEventListener('click',  (e) => {
+        e.preventDefault();
+        let gameAnswersList = getData.wordlist;
+        // console.log(gameAnswersList);
+        let userAttempt = inputContainer.innerHTML.toString();
+        // console.log(userAttempt);
+        if (gameAnswersList.includes(userAttempt)) {
+                correctAnswersArr.push(userAttempt);
+                correctAnswers.innerHTML += correctAnswersArr;
+                inputContainer.innerHTML = '';
+        }
 })
+console.log(correctAnswersArr);
+})
+
+        // add listener that uses conditional "while" to check against correctWordsList
+    //     while userInput is in Array append wordbank and accumulate
+
+
 
 
 deleteButton.addEventListener('click', () => {
