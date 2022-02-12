@@ -2,24 +2,26 @@
         // use "letters" key whose value comes in as a string
         // then .split() to make an array that contains each letter as a string
         // then loop over the "letters" array, forEach letter make a button and an event listener that adds the button-content to the userInput
-// 2) use "center" key whose value is also a string- assign eventListener that adds the button-content to the userInput
+        // 2) use "center" key whose value is also a string- assign eventListener that adds the button-content to the userInput
 // 3) create submitButton that starts step 4
 // 4)use "wordlist" key whose value is an array and check userInput against the array using a loop.
 // 5)if userInput is in "wordlist" then add to "correctAnswer" array, accumulate point, add word to DOM
 // 6)else userInput it NOT in "wordlist" then alert and clear userInput 
 // 7) if "center" is not included in userInput then alert and clear userInput
-// 8) create delete button for userInput
-// let userInput = document.getElementById('userInput');
+        // 8) create delete button for userInput
+
+
 let lettersContainer = document.getElementById('lettersContainer');
 let inputContainer = document.getElementById('inputContainer');
 let deleteButton = document.getElementById('deleteButton');
-
+let submitButton = document.getElementById('submitButton');
+let correctAnswers = document.getElementById('correctAnswers');
 
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json())
-.then(getLetters => {
-            // console.log(getLetters.letters);
-    let centerLetter = getLetters.center;
+.then(getData => {
+            // console.log(getData.letters);
+    let centerLetter = getData.center;
             // console.log(centerLetter);
     let centerLetButton = document.createElement('button');
     centerLetButton.setAttribute('id', 'centerButton');
@@ -30,7 +32,7 @@ fetch (`https://freebee.fun//cgi-bin/random`)
         e.preventDefault();
         inputContainer.innerHTML+= centerLetButton.value;
 })
-    let letters = getLetters.letters.split('');      
+    let letters = getData.letters.split('');      
             // console.log(letters);
     letters.forEach(letters => {
         let letterButton = document.createElement('button');
@@ -44,7 +46,27 @@ fetch (`https://freebee.fun//cgi-bin/random`)
             inputContainer.innerHTML+= letterButton.value;
         })
 })
+correctAnswersArr = [];
+submitButton.addEventListener('click',  (e) => {
+        e.preventDefault();
+        let gameAnswersList = getData.wordlist;
+        // console.log(gameAnswersList);
+        let userAttempt = inputContainer.innerHTML.toString();
+        // console.log(userAttempt);
+        if (gameAnswersList.includes(userAttempt)) {
+                correctAnswersArr.push(userAttempt);
+                correctAnswers.innerHTML += correctAnswersArr;
+                inputContainer.innerHTML = '';
+        }
 })
+console.log(correctAnswersArr);
+})
+
+        // add listener that uses conditional "while" to check against correctWordsList
+    //     while userInput is in Array append wordbank and accumulate
+
+
+
 
 deleteButton.addEventListener('click', () => {
     let input  = String(inputContainer.innerText);
