@@ -3,8 +3,8 @@
         // then .split() to make an array that contains each letter as a string
         // then loop over the "letters" array, forEach letter make a button and an event listener that adds the button-content to the userInput
         // 2) use "center" key whose value is also a string- assign eventListener that adds the button-content to the userInput
-// 3) create submitButton that starts step 4
-// 4)use "wordlist" key whose value is an array and check userInput against the array using a loop.
+        // 3) create submitButton that starts step 4
+        // 4)use "wordlist" key whose value is an array and check userInput against the array using a loop.
 // 5)if userInput is in "wordlist" then add to "correctAnswer" array, accumulate point, add word to DOM
 // 6)else userInput it NOT in "wordlist" then alert and clear userInput 
 // 7) if "center" is not included in userInput then alert and clear userInput
@@ -61,12 +61,6 @@ submitButton.addEventListener('click',  (e) => {
 })
 console.log(correctAnswersArr);
 })
-
-        // add listener that uses conditional "while" to check against correctWordsList
-    //     while userInput is in Array append wordbank and accumulate
-
-
-
 
 deleteButton.addEventListener('click', () => {
     let input  = String(inputContainer.innerText);
