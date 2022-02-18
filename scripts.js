@@ -16,6 +16,8 @@ let inputContainer = document.getElementById('inputContainer');
 let deleteButton = document.getElementById('deleteButton');
 let submitButton = document.getElementById('submitButton');
 let correctAnswers = document.getElementById('correctAnswers');
+let totalPointsContainer = document.getElementById('points');
+let accumulatedPoints = 0;
 
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json())
@@ -57,7 +59,15 @@ submitButton.addEventListener('click',  (e) => {
                 correctAnswersArr.push(userAttempt);
                 correctAnswers.innerHTML += correctAnswersArr;
                 inputContainer.innerHTML = '';
-        }
+                accumulatedPoints++;
+                totalPointsContainer.innerHTML = accumulatedPoints;
+               //  alert('nice!');
+                return true;
+        }else {
+                //  alert('word not found, please try again');
+                 inputContainer.innerHTML = '';
+                 return false;
+             } 
 })
 console.log(correctAnswersArr);
 })
