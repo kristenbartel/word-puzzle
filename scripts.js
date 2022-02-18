@@ -55,7 +55,7 @@ submitButton.addEventListener('click',  (e) => {
         // console.log(gameAnswersList);
         let userAttempt = inputContainer.innerHTML.toString();
         // console.log(userAttempt);
-        if (gameAnswersList.includes(userAttempt)) {
+        if (gameAnswersList.includes(userAttempt) && !correctAnswersArr.includes(userAttempt)) {
                 correctAnswersArr.push(userAttempt);
                 correctAnswers.innerHTML += userAttempt;
                 // userAttempt += correctAnswersArr;
