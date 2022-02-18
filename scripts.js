@@ -57,7 +57,8 @@ submitButton.addEventListener('click',  (e) => {
         // console.log(userAttempt);
         if (gameAnswersList.includes(userAttempt)) {
                 correctAnswersArr.push(userAttempt);
-                correctAnswers.innerHTML += correctAnswersArr;
+                correctAnswers.innerHTML += userAttempt;
+                // userAttempt += correctAnswersArr;
                 inputContainer.innerHTML = '';
                 accumulatedPoints++;
                 totalPointsContainer.innerHTML = accumulatedPoints;
