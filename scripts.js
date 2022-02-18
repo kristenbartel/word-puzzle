@@ -15,9 +15,11 @@ let lettersContainer = document.getElementById('lettersContainer');
 let inputContainer = document.getElementById('inputContainer');
 let deleteButton = document.getElementById('deleteButton');
 let submitButton = document.getElementById('submitButton');
-let correctAnswers = document.getElementById('correctAnswers');
+let correctAnswersContainer = document.getElementById('correctAnswersContainer');
 let totalPointsContainer = document.getElementById('points');
+let correctAnswersList = document.getElementById('correctAnswersList');
 let accumulatedPoints = 0;
+
 
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json())
@@ -57,8 +59,11 @@ submitButton.addEventListener('click',  (e) => {
         // console.log(userAttempt);
         if (gameAnswersList.includes(userAttempt) && !correctAnswersArr.includes(userAttempt)) {
                 correctAnswersArr.push(userAttempt);
-                correctAnswers.innerHTML += userAttempt;
-                // userAttempt += correctAnswersArr;
+                let listItem = document.createElement('li');
+                listItem.setAttribute('id', listItem);
+                listItem.setAttribute('value', userAttempt);
+                listItem.innerHTML = userAttempt;
+                correctAnswersList.appendChild(listItem);
                 inputContainer.innerHTML = '';
                 accumulatedPoints++;
                 totalPointsContainer.innerHTML = accumulatedPoints;
@@ -72,6 +77,7 @@ submitButton.addEventListener('click',  (e) => {
 })
 console.log(correctAnswersArr);
 })
+
 
 deleteButton.addEventListener('click', () => {
     let input  = String(inputContainer.innerText);
