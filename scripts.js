@@ -6,8 +6,8 @@
         // 3) create submitButton that starts step 4
         // 4)use "wordlist" key whose value is an array and check userInput against the array using a loop.
         // 5)if userInput is in "wordlist" then add to "correctAnswer" array, accumulate point, add word to DOM
-// 6)Add some alerts: else userInput it NOT in "wordlist" then alert and clear userInput 
-// 7) if useif "center" is not included in userInput then alert and clear userInput
+        // 6)Add some alerts: else userInput it NOT in "wordlist" then alert and clear userInput 
+        // 7) if useif "center" is not included in userInput then alert and clear userInput
         // 8) create delete button for userInput
 
 
@@ -57,7 +57,7 @@ submitButton.addEventListener('click',  (e) => {
         // console.log(gameAnswersList);
         let userAttempt = inputContainer.innerHTML.toString();
         // console.log(userAttempt);
-        if (gameAnswersList.includes(userAttempt) && !correctAnswersArr.includes(userAttempt)) { //if userAttempt does include centerButton.value
+        if (gameAnswersList.includes(userAttempt) && !correctAnswersArr.includes(userAttempt) && userAttempt.includes(centerButton.value)) { // 
                 correctAnswersArr.push(userAttempt);
                 let listItem = document.createElement('li');
                 listItem.setAttribute('id', listItem);
@@ -69,11 +69,22 @@ submitButton.addEventListener('click',  (e) => {
                 totalPointsContainer.innerHTML = accumulatedPoints;
                //  alert('nice!');
                 return true;
-        }else {
-                //  alert('word not found, please try again');
+        }
+        else if (!userAttempt.includes(centerButton.value) ) { 
+                alert('must use first letter');
+                inputContainer.innerHTML = '';
+                return false;
+                }   
+        else if (!gameAnswersList.includes(userAttempt)) { 
+                 alert('word not found, please try again');
                  inputContainer.innerHTML = '';
                  return false;
              } 
+        else if (correctAnswersArr.includes(userAttempt)) { 
+                alert('word already found');
+                inputContainer.innerHTML = '';
+                return false;
+            }      
 })
 console.log(correctAnswersArr);
 })
