@@ -62,9 +62,14 @@ submitButton.addEventListener('click',  (e) => {
                 correctAnswersList.appendChild(listItem);
                 inputContainer.innerHTML = '';
                 //callback points function
+                let letLength = userAttempt.length;
                 pointsFunction(userAttempt);
-                // accumulatedPoints++;
+                // accumulatedPoints++;  find away to count the letter in the correct answer
+                console.log(letLength)
+                // alert(letLength)
                 totalPointsContainer.innerHTML = accumulatedPoints;
+                 //define a function to pass the length outside to get if statement done
+
                 alert('nice!');
                 return true;
         }
@@ -82,10 +87,15 @@ submitButton.addEventListener('click',  (e) => {
                 alert('word already found');
                 inputContainer.innerHTML = '';
                 return false;
-            }      
+            }   
+
+
 })
 console.log(correctAnswersArr);
 })
+
+
+
 
 deleteButton.addEventListener('click', () => {
     let input  = String(inputContainer.innerText);
@@ -97,15 +107,15 @@ deleteButton.addEventListener('click', () => {
 
 let userAttempt = inputContainer.innerHTML.toString();
 let pointsFunction = function points(userAttempt) {
-        let splitWord = userAttempt.split()
+        // let splitWord = userAttempt.split()
         // console.log(splitWord, 'line 100'); //this makes an array of chars in word
-        let wordLength = splitWord.length 
+        // let userAttempt.length = splitWord.length 
         // console.log(wordLength, 'line 102');
-        if (wordLength === 4) {
-                accumulatedPoints = 4;
-        } else if (wordLength === 5) {
+        if (userAttempt.length === 4) {
+                accumulatedPoints = 1;
+        } else if (userAttempt.length === 5) {
                 accumulatedPoints = 5;
-        } else if (wordLength === 6) {
+        } else if (userAttempt.length === 6) {
                 accumulatedPoints = 6;
         }
 }
