@@ -22,7 +22,7 @@ let accumulatedPoints = 0;
 
 
 fetch (`https://freebee.fun//cgi-bin/random`)
-.then(response => response.json())
+.then(response => response.json()) //
 .then(getData => {
     let centerLetter = getData.center;
     let centerLetButton = document.createElement('button');
@@ -62,27 +62,27 @@ submitButton.addEventListener('click',  (e) => {
                 correctAnswersList.appendChild(listItem);
                 inputContainer.innerHTML = '';
                 //callback points function
-                pointsFunction(userAttempt);
-                // accumulatedPoints++;
+                // pointsFunction(userAttempt);
+                accumulatedPoints++;
                 totalPointsContainer.innerHTML = accumulatedPoints;
                 alert('nice!');
                 return true;
         }
-        else if (!userAttempt.includes(centerButton.value) ) { 
-                alert('must use first letter');
-                inputContainer.innerHTML = '';
-                return false;
-                }   
-        else if (!gameAnswersList.includes(userAttempt)) { 
-                 alert('word not found, please try again');
-                 inputContainer.innerHTML = '';
-                 return false;
-             } 
-        else if (correctAnswersArr.includes(userAttempt)) { 
-                alert('word already found');
-                inputContainer.innerHTML = '';
-                return false;
-            }      
+        // else if (!userAttempt.includes(centerButton.value) ) { 
+        //         alert('must use first letter');
+        //         inputContainer.innerHTML = '';
+        //         return false;
+        //         }   
+        // else if (!gameAnswersList.includes(userAttempt)) { 
+        //          alert('word not found, please try again');
+        //          inputContainer.innerHTML = '';
+        //          return false;
+        //      } 
+        // else if (correctAnswersArr.includes(userAttempt)) { 
+        //         alert('word already found');
+        //         inputContainer.innerHTML = '';
+        //         return false;
+        //     }      
 })
 console.log(correctAnswersArr);
 })
@@ -95,17 +95,17 @@ deleteButton.addEventListener('click', () => {
 
 //points function
 
-let userAttempt = inputContainer.innerHTML.toString();
-let pointsFunction = function points(userAttempt) {
-        let splitWord = userAttempt.split()
-        // console.log(splitWord, 'line 100'); //this makes an array of chars in word
-        let wordLength = splitWord.length 
-        // console.log(wordLength, 'line 102');
-        if (wordLength === 4) {
-                accumulatedPoints = 4;
-        } else if (wordLength === 5) {
-                accumulatedPoints = 5;
-        } else if (wordLength === 6) {
-                accumulatedPoints = 6;
-        }
-}
+// let userAttempt = inputContainer.innerHTML.toString();
+// let pointsFunction = function points(userAttempt) {
+//         let splitWord = userAttempt.split()
+//         // console.log(splitWord, 'line 100'); //this makes an array of chars in word
+//         let wordLength = splitWord.length 
+//         // console.log(wordLength, 'line 102');
+//         if (wordLength === 4) {
+//                 accumulatedPoints = 4;
+//         } else if (wordLength === 5) {
+//                 accumulatedPoints = 5;
+//         } else if (wordLength === 6) {
+//                 accumulatedPoints = 6;
+//         }
+// }
