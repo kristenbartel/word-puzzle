@@ -58,6 +58,7 @@ submitButton.addEventListener('click',  (e) => {
                 let listItem = document.createElement('li');
                 listItem.setAttribute('id', listItem);
                 listItem.setAttribute('value', userAttempt);
+                listItem.setAttribute('class', 'list-group-item' )
                 listItem.innerHTML = userAttempt;
                 correctAnswersList.appendChild(listItem);
                 inputContainer.innerHTML = '';
@@ -68,21 +69,21 @@ submitButton.addEventListener('click',  (e) => {
                 alert('nice!');
                 return true;
         }
-        // else if (!userAttempt.includes(centerButton.value) ) { 
-        //         alert('must use first letter');
-        //         inputContainer.innerHTML = '';
-        //         return false;
-        //         }   
-        // else if (!gameAnswersList.includes(userAttempt)) { 
-        //          alert('word not found, please try again');
-        //          inputContainer.innerHTML = '';
-        //          return false;
-        //      } 
-        // else if (correctAnswersArr.includes(userAttempt)) { 
-        //         alert('word already found');
-        //         inputContainer.innerHTML = '';
-        //         return false;
-        //     }      
+        else if (!userAttempt.includes(centerButton.value) ) { 
+                alert('must use first letter');
+                inputContainer.innerHTML = '';
+                return false;
+                }   
+        else if (!gameAnswersList.includes(userAttempt)) { 
+                 alert('word not found, please try again');
+                 inputContainer.innerHTML = '';
+                 return false;
+             } 
+        else if (correctAnswersArr.includes(userAttempt)) { 
+                alert('word already found');
+                inputContainer.innerHTML = '';
+                return false;
+            }      
 })
 console.log(correctAnswersArr);
 })
