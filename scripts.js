@@ -62,10 +62,10 @@ submitButton.addEventListener('click',  (e) => {
                 correctAnswersList.appendChild(listItem);
                 inputContainer.innerHTML = '';
                 //callback points function
-                let letLength = userAttempt.length;
-                pointsFunction(userAttempt);
+                let wordLength = userAttempt.length; //counting the correct answer length
+                pointsFunction(userAttempt); //define a function to pass it outside
                 // accumulatedPoints++;  find away to count the letter in the correct answer
-                console.log(letLength)
+                console.log(wordLength)
                 // alert(letLength)
                 totalPointsContainer.innerHTML = accumulatedPoints;
                  //define a function to pass the length outside to get if statement done
