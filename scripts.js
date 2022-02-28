@@ -8,7 +8,7 @@ let correctAnswersList = document.getElementById('correctAnswersList');
 let accumulatedPoints = 0;
 
 fetch (`https://freebee.fun//cgi-bin/random`)
-.then(response => response.json())
+.then(response => response.json()) //
 .then(getData => {
     let centerLetter = getData.center;
     let centerLetButton = document.createElement('button');
@@ -42,6 +42,7 @@ submitButton.addEventListener('click',  (e) => {
                 let listItem = document.createElement('li');
                 listItem.setAttribute('id', listItem);
                 listItem.setAttribute('value', userAttempt);
+                listItem.setAttribute('class', 'list-group-item' )
                 listItem.innerHTML = userAttempt;
                 correctAnswersList.appendChild(listItem);
                 inputContainer.innerHTML = '';
@@ -85,3 +86,4 @@ let pointsFunction = function points(userAttempt) {
                 accumulatedPoints += 6;
         }
 }
+
