@@ -1,16 +1,3 @@
-        // 1) make fetch to API
-        // use "letters" key whose value comes in as a string
-        // then .split() to make an array that contains each letter as a string
-        // then loop over the "letters" array, forEach letter make a button and an event listener that adds the button-content to the userInput
-        // 2) use "center" key whose value is also a string- assign eventListener that adds the button-content to the userInput
-        // 3) create submitButton that starts step 4
-        // 4)use "wordlist" key whose value is an array and check userInput against the array using a loop.
-        // 5)if userInput is in "wordlist" then add to "correctAnswer" array, accumulate point, add word to DOM
-        // 6)Add some alerts: else userInput it NOT in "wordlist" then alert and clear userInput 
-        // 7) if useif "center" is not included in userInput then alert and clear userInput
-        // 8) create delete button for userInput
-
-
 let lettersContainer = document.getElementById('lettersContainer');
 let inputContainer = document.getElementById('inputContainer');
 let deleteButton = document.getElementById('deleteButton');
@@ -19,7 +6,6 @@ let correctAnswersContainer = document.getElementById('correctAnswersContainer')
 let totalPointsContainer = document.getElementById('points');
 let correctAnswersList = document.getElementById('correctAnswersList');
 let accumulatedPoints = 0;
-
 
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json())
@@ -50,9 +36,7 @@ correctAnswersArr = [];
 submitButton.addEventListener('click',  (e) => {
         e.preventDefault();
         let gameAnswersList = getData.wordlist;
-        // console.log(gameAnswersList);
         let userAttempt = inputContainer.innerHTML.toString();
-        console.log(userAttempt);
         if (gameAnswersList.includes(userAttempt) && !correctAnswersArr.includes(userAttempt) && userAttempt.includes(centerButton.value)) { // 
                 correctAnswersArr.push(userAttempt);
                 let listItem = document.createElement('li');
@@ -61,15 +45,9 @@ submitButton.addEventListener('click',  (e) => {
                 listItem.innerHTML = userAttempt;
                 correctAnswersList.appendChild(listItem);
                 inputContainer.innerHTML = '';
-                //callback points function
-                let wordLength = userAttempt.length; //counting the correct answer length
-                pointsFunction(userAttempt); //define a function to pass it outside
-                // accumulatedPoints++;  find away to count the letter in the correct answer
-                console.log(wordLength)
-                // alert(letLength)
+                pointsFunction(userAttempt); 
                 totalPointsContainer.innerHTML = accumulatedPoints;
-                 //define a function to pass the length outside to get if statement done
-
+                console.log(accumulatedPoints);
                 alert('nice!');
                 return true;
         }
@@ -88,14 +66,8 @@ submitButton.addEventListener('click',  (e) => {
                 inputContainer.innerHTML = '';
                 return false;
             }   
-
-
 })
-console.log(correctAnswersArr);
 })
-
-
-
 
 deleteButton.addEventListener('click', () => {
     let input  = String(inputContainer.innerText);
@@ -103,19 +75,13 @@ deleteButton.addEventListener('click', () => {
     inputContainer.innerHTML = newString;
 }) 
 
-//points function
-
 let userAttempt = inputContainer.innerHTML.toString();
 let pointsFunction = function points(userAttempt) {
-        // let splitWord = userAttempt.split()
-        // console.log(splitWord, 'line 100'); //this makes an array of chars in word
-        // let userAttempt.length = splitWord.length 
-        // console.log(wordLength, 'line 102');
         if (userAttempt.length === 4) {
-                accumulatedPoints = 1;
+                accumulatedPoints += 1;
         } else if (userAttempt.length === 5) {
-                accumulatedPoints = 5;
+                accumulatedPoints += 5;
         } else if (userAttempt.length === 6) {
-                accumulatedPoints = 6;
+                accumulatedPoints += 6;
         }
 }
