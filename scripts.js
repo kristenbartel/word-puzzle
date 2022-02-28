@@ -24,9 +24,7 @@ let accumulatedPoints = 0;
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json())
 .then(getData => {
-            // console.log(getData.letters);
     let centerLetter = getData.center;
-            // console.log(centerLetter);
     let centerLetButton = document.createElement('button');
     centerLetButton.setAttribute('id', 'centerButton');
     centerLetButton.setAttribute('value', centerLetter);
@@ -37,13 +35,11 @@ fetch (`https://freebee.fun//cgi-bin/random`)
         inputContainer.innerHTML+= centerLetButton.value;
 })
     let letters = getData.letters.split('');      
-            // console.log(letters);
     letters.forEach(letters => {
         let letterButton = document.createElement('button');
         letterButton.setAttribute('id', 'letterButton');
         letterButton.setAttribute('value', letters);
         letterButton.innerText = letterButton.value;
-            // console.log(letterButton);
         lettersContainer.appendChild(letterButton);
         letterButton.addEventListener('click', (e) => {
             e.preventDefault();
@@ -56,7 +52,7 @@ submitButton.addEventListener('click',  (e) => {
         let gameAnswersList = getData.wordlist;
         // console.log(gameAnswersList);
         let userAttempt = inputContainer.innerHTML.toString();
-        // console.log(userAttempt);
+        console.log(userAttempt);
         if (gameAnswersList.includes(userAttempt) && !correctAnswersArr.includes(userAttempt) && userAttempt.includes(centerButton.value)) { // 
                 correctAnswersArr.push(userAttempt);
                 let listItem = document.createElement('li');
@@ -65,9 +61,16 @@ submitButton.addEventListener('click',  (e) => {
                 listItem.innerHTML = userAttempt;
                 correctAnswersList.appendChild(listItem);
                 inputContainer.innerHTML = '';
-                accumulatedPoints++;
+                //callback points function
+                let wordLength = userAttempt.length; //counting the correct answer length
+                pointsFunction(userAttempt); //define a function to pass it outside
+                // accumulatedPoints++;  find away to count the letter in the correct answer
+                console.log(wordLength)
+                // alert(letLength)
                 totalPointsContainer.innerHTML = accumulatedPoints;
-               //  alert('nice!');
+                 //define a function to pass the length outside to get if statement done
+
+                alert('nice!');
                 return true;
         }
         else if (!userAttempt.includes(centerButton.value) ) { 
@@ -84,10 +87,14 @@ submitButton.addEventListener('click',  (e) => {
                 alert('word already found');
                 inputContainer.innerHTML = '';
                 return false;
-            }      
+            }   
+
+
 })
 console.log(correctAnswersArr);
 })
+
+
 
 
 deleteButton.addEventListener('click', () => {
@@ -95,3 +102,20 @@ deleteButton.addEventListener('click', () => {
     let newString = input.slice(0, -1);
     inputContainer.innerHTML = newString;
 }) 
+
+//points function
+
+let userAttempt = inputContainer.innerHTML.toString();
+let pointsFunction = function points(userAttempt) {
+        // let splitWord = userAttempt.split()
+        // console.log(splitWord, 'line 100'); //this makes an array of chars in word
+        // let userAttempt.length = splitWord.length 
+        // console.log(wordLength, 'line 102');
+        if (userAttempt.length === 4) {
+                accumulatedPoints = 1;
+        } else if (userAttempt.length === 5) {
+                accumulatedPoints = 5;
+        } else if (userAttempt.length === 6) {
+                accumulatedPoints = 6;
+        }
+}
