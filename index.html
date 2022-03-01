@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>Word Puzzle</title>
+
 </head>
 <body>
 <div class="column">
@@ -18,12 +19,14 @@
     <div class="alert alert-primary" id="inputButtons">
         <button class="button is-link is-small" id="submitButton">submit</button>
         <button class="button is-link is-small" id="deleteButton">delete</button>
+        <!-- <button class="button is-link is-small" id="resetButton">Reset</button> -->
+
+        <h1 class="alertMessages" id="alertMessages"></h1>
     </div>
     <div class="box" id="correctAnswersContainer">
         <ul class="correctAnswersList list-group" id="correctAnswersList"> 
-
         </ul>
-        </div>
+    </div>
         
     <div class="box" id="points">Points:</div>
     <!-- <div class="notification is-link is-light">

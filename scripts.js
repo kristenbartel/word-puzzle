@@ -1,3 +1,5 @@
+
+
 let lettersContainer = document.getElementById('lettersContainer');
 let inputContainer = document.getElementById('inputContainer');
 let deleteButton = document.getElementById('deleteButton');
@@ -6,6 +8,11 @@ let correctAnswersContainer = document.getElementById('correctAnswersContainer')
 let totalPointsContainer = document.getElementById('points');
 let correctAnswersList = document.getElementById('correctAnswersList');
 let accumulatedPoints = 0;
+let alertMessages = document.getElementById('alertMessages');
+let resetButton = document.getElementById('resetButton');
+
+let message = "";
+
 
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json()) //
@@ -49,21 +56,29 @@ submitButton.addEventListener('click',  (e) => {
                 pointsFunction(userAttempt); 
                 totalPointsContainer.innerHTML = accumulatedPoints;
                 console.log(accumulatedPoints);
-                alert('nice!');
+                message = "nice";
+                alertMessages.innerText = message;
+                inputContainer.innerHTML = '';
+                // alert('nice!');
                 return true;
         }
         else if (!userAttempt.includes(centerButton.value) ) { 
-                alert('must use first letter');
-                inputContainer.innerHTML = '';
+                message = "must choose first letter";
+                alertMessages.innerText = message;
                 return false;
                 }   
         else if (!gameAnswersList.includes(userAttempt)) { 
-                 alert('word not found, please try again');
-                 inputContainer.innerHTML = '';
-                 return false;
+                message = "word not found, please try again";
+                alertMessages.innerText = message;
+                inputContainer.innerHTML = '';
+                return false;
              } 
         else if (correctAnswersArr.includes(userAttempt)) { 
-                alert('word already found');
+                // alert('word already found');
+                // inputContainer.innerHTML = '';
+                // return false;
+                message = "word already found";
+                alertMessages.innerText = message;
                 inputContainer.innerHTML = '';
                 return false;
             }   
@@ -74,6 +89,9 @@ deleteButton.addEventListener('click', () => {
     let input  = String(inputContainer.innerText);
     let newString = input.slice(0, -1);
     inputContainer.innerHTML = newString;
+
+    message = "";
+    alertMessages.innerText = message;
 }) 
 
 let userAttempt = inputContainer.innerHTML.toString();
