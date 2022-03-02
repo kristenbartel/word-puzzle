@@ -15,6 +15,7 @@ fetch (`https://freebee.fun//cgi-bin/random`)
     let centerLetter = getData.center;
     let centerLetButton = document.createElement('button');
     centerLetButton.setAttribute('id', 'centerButton');
+    centerLetButton.setAttribute('class', "button is-medium")
     centerLetButton.setAttribute('value', centerLetter);
     centerLetButton.innerText = centerLetButton.value;
     lettersContainer.appendChild(centerLetButton);
@@ -26,6 +27,7 @@ fetch (`https://freebee.fun//cgi-bin/random`)
     letters.forEach(letters => {
         let letterButton = document.createElement('button');
         letterButton.setAttribute('id', 'letterButton');
+        letterButton.setAttribute('class', 'button is-medium');
         letterButton.setAttribute('value', letters);
         letterButton.innerText = letterButton.value;
         lettersContainer.appendChild(letterButton);
@@ -45,11 +47,11 @@ submitButton.addEventListener('click',  (e) => {
                 listItem.setAttribute('id', listItem);
                 listItem.setAttribute('value', userAttempt);
                 listItem.setAttribute('class', 'list-group-item' )
-                listItem.innerHTML = userAttempt;
+                listItem.innerHTML = "-  " + userAttempt;
                 correctAnswersList.appendChild(listItem);
                 inputContainer.innerHTML = '';
                 pointsFunction(userAttempt); 
-                totalPointsContainer.innerHTML = accumulatedPoints;
+                totalPointsContainer.innerHTML = "Points:   " + accumulatedPoints;
                 return true;
         } 
         else if (!userAttempt.includes(centerButton.value) ) { 
