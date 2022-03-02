@@ -1,5 +1,3 @@
-
-
 let lettersContainer = document.getElementById('lettersContainer');
 let inputContainer = document.getElementById('inputContainer');
 let deleteButton = document.getElementById('deleteButton');
@@ -8,14 +6,11 @@ let correctAnswersContainer = document.getElementById('correctAnswersContainer')
 let totalPointsContainer = document.getElementById('points');
 let correctAnswersList = document.getElementById('correctAnswersList');
 let accumulatedPoints = 0;
-let alertMessages = document.getElementById('alertMessages');
-let resetButton = document.getElementById('resetButton');
-
-let message = "";
-
+let messageContainer = document.getElementById('messageContainer');
+        messageContainer.setAttribute('id', 'messageContainer');
 
 fetch (`https://freebee.fun//cgi-bin/random`)
-.then(response => response.json()) //
+.then(response => response.json())
 .then(getData => {
     let centerLetter = getData.center;
     let centerLetButton = document.createElement('button');
@@ -55,30 +50,47 @@ submitButton.addEventListener('click',  (e) => {
                 inputContainer.innerHTML = '';
                 pointsFunction(userAttempt); 
                 totalPointsContainer.innerHTML = accumulatedPoints;
-                console.log(accumulatedPoints);
-                message = "nice";
-                alertMessages.innerText = message;
-                inputContainer.innerHTML = '';
-                // alert('nice!');
                 return true;
-        }
+        } 
         else if (!userAttempt.includes(centerButton.value) ) { 
-                message = "must choose first letter";
-                alertMessages.innerText = message;
+                let errorMessage = `<article id="errorMessage" class="message is-danger">
+                <div class="message-header">
+                  <p>Uh Oh!</p>
+                  <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                  Word must contain FIRST letter.
+                </div>
+                </article>`;
+                document.querySelector('#messageContainer').insertAdjacentHTML('afterbegin', errorMessage);
+                inputContainer.innerHTML = '';
                 return false;
-                }   
+                }  
         else if (!gameAnswersList.includes(userAttempt)) { 
-                message = "word not found, please try again";
-                alertMessages.innerText = message;
+                let errorMessage = `<article id="errorMessage" class="message is-danger">
+                <div class="message-header">
+                  <p>Uh Oh!</p>
+                  <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                  Word not found.
+                </div>
+                </article>`;
+                document.querySelector('#messageContainer').insertAdjacentHTML('afterbegin', errorMessage);
                 inputContainer.innerHTML = '';
                 return false;
              } 
         else if (correctAnswersArr.includes(userAttempt)) { 
-                // alert('word already found');
-                // inputContainer.innerHTML = '';
-                // return false;
-                message = "word already found";
-                alertMessages.innerText = message;
+                let errorMessage = `<article id="errorMessage" class="message is-danger">
+                <div class="message-header">
+                  <p>Uh Oh!</p>
+                  <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
+                </div>
+                <div class="message-body">
+                  Word already Found.
+                </div>
+                </article>`;
+                document.querySelector('#messageContainer').insertAdjacentHTML('afterbegin', errorMessage);
                 inputContainer.innerHTML = '';
                 return false;
             }   
@@ -89,18 +101,21 @@ deleteButton.addEventListener('click', () => {
     let input  = String(inputContainer.innerText);
     let newString = input.slice(0, -1);
     inputContainer.innerHTML = newString;
-
-    message = "";
-    alertMessages.innerText = message;
 }) 
 
 let userAttempt = inputContainer.innerHTML.toString();
 let pointsFunction = function points(userAttempt) {
         if (userAttempt.length === 4) {
+                messageContainer.innerHTML = "Nice! You earned 1 point."
+                setTimeout(function () {messageContainer.innerHTML = ""}, 2000);
                 accumulatedPoints += 1;
         } else if (userAttempt.length === 5) {
                 accumulatedPoints += 5;
-        } else if (userAttempt.length === 6) {
+                messageContainer.innerHTML = "Very Nice! You earned 5 points."
+                setTimeout(function () {messageContainer.innerHTML = ""}, 2000);
+        } else if (userAttempt.length >= 6) {
+                messageContainer.innerHTML = "Excellent! You earned 6 points."
+                setTimeout(function () {messageContainer.innerHTML = ""}, 2000);
                 accumulatedPoints += 6;
         }
 }
