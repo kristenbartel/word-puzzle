@@ -8,6 +8,7 @@ let correctAnswersList = document.getElementById('correctAnswersList');
 let accumulatedPoints = 0;
 let messageContainer = document.getElementById('messageContainer');
         messageContainer.setAttribute('id', 'messageContainer');
+let pointsMessageContainer = document.getElementById('pointsMessageContainer')
 
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json())
@@ -55,44 +56,59 @@ submitButton.addEventListener('click',  (e) => {
                 return true;
         } 
         else if (!userAttempt.includes(centerButton.value) ) { 
-                let errorMessage = `<article id="errorMessage" class="message is-warning">
-                <div class="message-header">
-                  <p>Uh Oh!</p>
-                  <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
+                let errorMessage = `<div class="modal is-active">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title">Uh Oh!</p>
+                    <button class="delete" onclick="body.removeChild(body.firstElementChild)" aria-label="delete"></button>
+                  </header>
+                  <section class="modal-card-body">
+                    Word must contain first letter listed.
+                  </section>
+                  <footer class="modal-card-foot">
+                  </footer>
                 </div>
-                <div class="message-body">
-                  Word must contain FIRST letter.
-                </div>
-                </article>`;
-                document.querySelector('#messageContainer').insertAdjacentHTML('afterbegin', errorMessage);
+              </div>`
+                document.querySelector('body').insertAdjacentHTML('afterbegin', errorMessage);
                 inputContainer.innerHTML = '';
                 return false;
                 }  
         else if (!gameAnswersList.includes(userAttempt)) { 
-                let errorMessage = `<article id="errorMessage" class="message is-warning">
-                <div class="message-header">
-                  <p>Uh Oh!</p>
-                  <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
+                let errorMessage = `<div class="modal is-active">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title">Oh No!</p>
+                    <button class="delete" onclick="body.removeChild(body.firstElementChild)" aria-label="delete"></button>
+                  </header>
+                  <section class="modal-card-body">
+                    Word not found in game.
+                  </section>
+                  <footer class="modal-card-foot">
+                  </footer>
                 </div>
-                <div class="message-body">
-                  Word not found.
-                </div>
-                </article>`;
-                document.querySelector('#messageContainer').insertAdjacentHTML('afterbegin', errorMessage);
+              </div>`
+                document.querySelector('body').insertAdjacentHTML('afterbegin', errorMessage);
                 inputContainer.innerHTML = '';
                 return false;
              } 
         else if (correctAnswersArr.includes(userAttempt)) { 
-                let errorMessage = `<article id="errorMessage" class="message is-warning">
-                <div class="message-header">
-                  <p>Uh Oh!</p>
-                  <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
+                let errorMessage = `<div class="modal is-active">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title">Oops!</p>
+                    <button class="delete" onclick="body.removeChild(body.firstElementChild)" aria-label="delete"></button>
+                  </header>
+                  <section class="modal-card-body">
+                    Word already found.
+                  </section>
+                  <footer class="modal-card-foot">
+                  </footer>
                 </div>
-                <div class="message-body">
-                  Word already Found.
-                </div>
-                </article>`;
-                document.querySelector('#messageContainer').insertAdjacentHTML('afterbegin', errorMessage);
+              </div>`
+                document.querySelector('body').insertAdjacentHTML('afterbegin', errorMessage);
                 inputContainer.innerHTML = '';
                 return false;
             }   
