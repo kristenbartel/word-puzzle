@@ -1,1 +1,32 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css";
+body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    width: 100vw;
+}
+* {
+    /* box-sizing: border-box; */
+}
+.bodyDiv {
+    background-image: linear-gradient(315deg, #d99058 0%, #fcf0c4 74%);
+    height: 100%;
+    width: 100%;
+}
+.title {
+    /* font-family: 'Abril Fatface', cursive; */
+    /* font-family: 'Alice', serif; */
+    /* font-family: 'Courgette', cursive; */
+    /* font-family: 'Fredoka One', cursive; */
+    /* font-family: 'Pacifico', cursive; */
+    /* font-family: 'Sigmar One', cursive; */
+    font-family: 'Yeseva One', cursive;
+    color: white !important;
+    outline: #d99058 !important;
+}
+#playBox {
+    /* background-color: #fcf0c4; */
+}
+

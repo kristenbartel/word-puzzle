@@ -8,6 +8,7 @@ let correctAnswersList = document.getElementById('correctAnswersList');
 let accumulatedPoints = 0;
 let messageContainer = document.getElementById('messageContainer');
         messageContainer.setAttribute('id', 'messageContainer');
+let pointsMessageContainer = document.getElementById('pointsMessageContainer')
 
 fetch (`https://freebee.fun//cgi-bin/random`)
 .then(response => response.json())
@@ -15,6 +16,7 @@ fetch (`https://freebee.fun//cgi-bin/random`)
     let centerLetter = getData.center;
     let centerLetButton = document.createElement('button');
     centerLetButton.setAttribute('id', 'centerButton');
+    centerLetButton.setAttribute('class', "button is-medium m-1 is-warning is-light is-outlined")
     centerLetButton.setAttribute('value', centerLetter);
     centerLetButton.innerText = centerLetButton.value;
     lettersContainer.appendChild(centerLetButton);
@@ -26,6 +28,7 @@ fetch (`https://freebee.fun//cgi-bin/random`)
     letters.forEach(letters => {
         let letterButton = document.createElement('button');
         letterButton.setAttribute('id', 'letterButton');
+        letterButton.setAttribute('class', 'button is-medium m-1');
         letterButton.setAttribute('value', letters);
         letterButton.innerText = letterButton.value;
         lettersContainer.appendChild(letterButton);
@@ -45,52 +48,67 @@ submitButton.addEventListener('click',  (e) => {
                 listItem.setAttribute('id', listItem);
                 listItem.setAttribute('value', userAttempt);
                 listItem.setAttribute('class', 'list-group-item' )
-                listItem.innerHTML = userAttempt;
+                listItem.innerHTML = "-  " + userAttempt;
                 correctAnswersList.appendChild(listItem);
                 inputContainer.innerHTML = '';
                 pointsFunction(userAttempt); 
-                totalPointsContainer.innerHTML = accumulatedPoints;
+                totalPointsContainer.innerHTML = "Points:   " + accumulatedPoints;
                 return true;
         } 
         else if (!userAttempt.includes(centerButton.value) ) { 
-                let errorMessage = `<article id="errorMessage" class="message is-danger">
-                <div class="message-header">
-                  <p>Uh Oh!</p>
-                  <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
+                let errorMessage = `<div class="modal is-active">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title">Uh Oh!</p>
+                    <button class="delete" onclick="body.removeChild(body.firstElementChild)" aria-label="delete"></button>
+                  </header>
+                  <section class="modal-card-body">
+                    Word must contain first letter listed.
+                  </section>
+                  <footer class="modal-card-foot">
+                  </footer>
                 </div>
-                <div class="message-body">
-                  Word must contain FIRST letter.
-                </div>
-                </article>`;
-                document.querySelector('#messageContainer').insertAdjacentHTML('afterbegin', errorMessage);
+              </div>`
+                document.querySelector('body').insertAdjacentHTML('afterbegin', errorMessage);
                 inputContainer.innerHTML = '';
                 return false;
                 }  
         else if (!gameAnswersList.includes(userAttempt)) { 
-                let errorMessage = `<article id="errorMessage" class="message is-danger">
-                <div class="message-header">
-                  <p>Uh Oh!</p>
-                  <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
+                let errorMessage = `<div class="modal is-active">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title">Oh No!</p>
+                    <button class="delete" onclick="body.removeChild(body.firstElementChild)" aria-label="delete"></button>
+                  </header>
+                  <section class="modal-card-body">
+                    Word not found in game.
+                  </section>
+                  <footer class="modal-card-foot">
+                  </footer>
                 </div>
-                <div class="message-body">
-                  Word not found.
-                </div>
-                </article>`;
-                document.querySelector('#messageContainer').insertAdjacentHTML('afterbegin', errorMessage);
+              </div>`
+                document.querySelector('body').insertAdjacentHTML('afterbegin', errorMessage);
                 inputContainer.innerHTML = '';
                 return false;
              } 
         else if (correctAnswersArr.includes(userAttempt)) { 
-                let errorMessage = `<article id="errorMessage" class="message is-danger">
-                <div class="message-header">
-                  <p>Uh Oh!</p>
-                  <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
+                let errorMessage = `<div class="modal is-active">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title">Oops!</p>
+                    <button class="delete" onclick="body.removeChild(body.firstElementChild)" aria-label="delete"></button>
+                  </header>
+                  <section class="modal-card-body">
+                    Word already found.
+                  </section>
+                  <footer class="modal-card-foot">
+                  </footer>
                 </div>
-                <div class="message-body">
-                  Word already Found.
-                </div>
-                </article>`;
-                document.querySelector('#messageContainer').insertAdjacentHTML('afterbegin', errorMessage);
+              </div>`
+                document.querySelector('body').insertAdjacentHTML('afterbegin', errorMessage);
                 inputContainer.innerHTML = '';
                 return false;
             }   
@@ -105,7 +123,7 @@ deleteButton.addEventListener('click', () => {
 
 let userAttempt = inputContainer.innerHTML.toString();
 let pointsFunction = function points(userAttempt) {
-        if (userAttempt.length === 4) {
+        if (userAttempt.length === 4) { //you need a seperate div here so you can remove t with the timeOUT
                 messageContainer.innerHTML = "Nice! You earned 1 point."
                 setTimeout(function () {messageContainer.innerHTML = ""}, 2000);
                 accumulatedPoints += 1;
