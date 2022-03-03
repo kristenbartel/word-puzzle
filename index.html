@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bangers&family=Chakra+Petch:wght@500&family=Courgette&family=Fredoka+One&family=Pacifico&family=Sigmar+One&family=Yeseva+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>Word Puzzle</title>
 </head>
@@ -13,7 +16,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            <img src="" width="112" height="28">
           </a>
       
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -32,34 +35,10 @@
             <a class="navbar-item">
               Documentation
             </a>
-      
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About
-                </a>
-                <a class="navbar-item">
-                  Jobs
-                </a>
-                <a class="navbar-item">
-                  Contact
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div>
-            </div>
-          </div>
-      
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-primary">
+                <a class="button is-warning is-light">
                   <strong>Sign up</strong>
                 </a>
                 <a class="button is-light">
@@ -71,20 +50,26 @@
         </div>
       </nav>
 
-
-
-    <div class="column title" id="title">Release the Bees</div>
+<h1 class="title is-1 m-5">Release the Bees</h1>
 <div class="leftSide columns m-4">
     <div class="column is-half box m-3" id="playBox">
         <div class="box" id="inputContainer"></div>
         <div class="block" id="lettersContainer"></div>
-        <div class="alert alert-primary block" id="inputButtons">
-            <button class="button is-link is-small" id="submitButton">submit</button>
-            <button class="button is-link is-small" id="deleteButton">delete</button>
+        <div class="block" id="inputButtons">
+            <button class="button is-warning is-medium m-2" id="submitButton">submit</button>
+            <button class="button is-warning is-medium m-2" id="deleteButton">delete</button>
         </div>
     </div>   
     <div class="rightSide column box m-3 alertMessage is-warning" id="messageContainer">
         <div id="afterBeginFirstChild"></div>
+        <div>
+            <ol>Game Rules: </ol>
+            <li> use the characters listed, create as many words as possible.</li>
+            <li> word must contain the first letter listed.</li>
+            <li> word must be at least 4 characters long.</li>
+        </div>
+      
+        
     </div>
 </div>
 <div class="leftSide columns m-5">

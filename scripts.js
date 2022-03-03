@@ -15,7 +15,7 @@ fetch (`https://freebee.fun//cgi-bin/random`)
     let centerLetter = getData.center;
     let centerLetButton = document.createElement('button');
     centerLetButton.setAttribute('id', 'centerButton');
-    centerLetButton.setAttribute('class', "button is-medium")
+    centerLetButton.setAttribute('class', "button is-medium m-1 is-warning is-light is-outlined")
     centerLetButton.setAttribute('value', centerLetter);
     centerLetButton.innerText = centerLetButton.value;
     lettersContainer.appendChild(centerLetButton);
@@ -27,7 +27,7 @@ fetch (`https://freebee.fun//cgi-bin/random`)
     letters.forEach(letters => {
         let letterButton = document.createElement('button');
         letterButton.setAttribute('id', 'letterButton');
-        letterButton.setAttribute('class', 'button is-medium');
+        letterButton.setAttribute('class', 'button is-medium m-1');
         letterButton.setAttribute('value', letters);
         letterButton.innerText = letterButton.value;
         lettersContainer.appendChild(letterButton);
@@ -55,7 +55,7 @@ submitButton.addEventListener('click',  (e) => {
                 return true;
         } 
         else if (!userAttempt.includes(centerButton.value) ) { 
-                let errorMessage = `<article id="errorMessage" class="message is-danger">
+                let errorMessage = `<article id="errorMessage" class="message is-warning">
                 <div class="message-header">
                   <p>Uh Oh!</p>
                   <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
@@ -69,7 +69,7 @@ submitButton.addEventListener('click',  (e) => {
                 return false;
                 }  
         else if (!gameAnswersList.includes(userAttempt)) { 
-                let errorMessage = `<article id="errorMessage" class="message is-danger">
+                let errorMessage = `<article id="errorMessage" class="message is-warning">
                 <div class="message-header">
                   <p>Uh Oh!</p>
                   <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
@@ -83,7 +83,7 @@ submitButton.addEventListener('click',  (e) => {
                 return false;
              } 
         else if (correctAnswersArr.includes(userAttempt)) { 
-                let errorMessage = `<article id="errorMessage" class="message is-danger">
+                let errorMessage = `<article id="errorMessage" class="message is-warning">
                 <div class="message-header">
                   <p>Uh Oh!</p>
                   <button class="delete" onclick="messageContainer.removeChild(messageContainer.firstElementChild)" aria-label="delete"></button>
@@ -107,7 +107,7 @@ deleteButton.addEventListener('click', () => {
 
 let userAttempt = inputContainer.innerHTML.toString();
 let pointsFunction = function points(userAttempt) {
-        if (userAttempt.length === 4) {
+        if (userAttempt.length === 4) { //you need a seperate div here so you can remove t with the timeOUT
                 messageContainer.innerHTML = "Nice! You earned 1 point."
                 setTimeout(function () {messageContainer.innerHTML = ""}, 2000);
                 accumulatedPoints += 1;
