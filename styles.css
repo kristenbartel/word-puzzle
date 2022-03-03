@@ -15,7 +15,7 @@ body {
     height: 100%;
     width: 100%;
 }
-.title {
+h1 {
     /* font-family: 'Abril Fatface', cursive; */
     /* font-family: 'Alice', serif; */
     /* font-family: 'Courgette', cursive; */
@@ -23,8 +23,9 @@ body {
     /* font-family: 'Pacifico', cursive; */
     /* font-family: 'Sigmar One', cursive; */
     font-family: 'Yeseva One', cursive;
-    color: white !important;
+    color: rgb(26, 16, 16) !important;
     outline: #d99058 !important;
+    font-size: 5vw;
 }
 #playBox {
     /* background-color: #fcf0c4; */

@@ -6,8 +6,6 @@ let correctAnswersContainer = document.getElementById('correctAnswersContainer')
 let totalPointsContainer = document.getElementById('points');
 let correctAnswersList = document.getElementById('correctAnswersList');
 let accumulatedPoints = 0;
-let messageContainer = document.getElementById('messageContainer');
-        messageContainer.setAttribute('id', 'messageContainer');
 let pointsMessageContainer = document.getElementById('pointsMessageContainer')
 
 fetch (`https://freebee.fun//cgi-bin/random`)
@@ -123,17 +121,17 @@ deleteButton.addEventListener('click', () => {
 
 let userAttempt = inputContainer.innerHTML.toString();
 let pointsFunction = function points(userAttempt) {
-        if (userAttempt.length === 4) { //you need a seperate div here so you can remove t with the timeOUT
-                messageContainer.innerHTML = "Nice! You earned 1 point."
-                setTimeout(function () {messageContainer.innerHTML = ""}, 2000);
+        if (userAttempt.length === 4) {
+                pointsMessageContainer.innerHTML = "Nice! You earned 1 point."
+                setTimeout(function () {pointsMessageContainer.innerHTML = ""}, 2000);
                 accumulatedPoints += 1;
         } else if (userAttempt.length === 5) {
                 accumulatedPoints += 5;
-                messageContainer.innerHTML = "Very Nice! You earned 5 points."
-                setTimeout(function () {messageContainer.innerHTML = ""}, 2000);
+                pointsMessageContainer.innerHTML = "Very Nice! You earned 5 points."
+                setTimeout(function () {pointsMessageContainer.innerHTML = ""}, 2000);
         } else if (userAttempt.length >= 6) {
-                messageContainer.innerHTML = "Excellent! You earned 6 points."
-                setTimeout(function () {messageContainer.innerHTML = ""}, 2000);
+                pointsMessageContainer.innerHTML = "Excellent! You earned 6 points."
+                setTimeout(function () {pointsMessageContainer.innerHTML = ""}, 2000);
                 accumulatedPoints += 6;
         }
 }
