@@ -7,99 +7,102 @@
     <link rel="stylesheet" href="./styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bangers&family=Chakra+Petch:wght@500&family=Courgette&family=Fredoka+One&family=Pacifico&family=Sigmar+One&family=Yeseva+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alice&family=Bangers&family=Chakra+Petch:wght@500&family=Courgette&family=Fredoka+One&family=Fredoka:wght@300&family=Hubballi&family=Pacifico&family=Quicksand:wght@600&family=Sigmar+One&family=Yeseva+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <title>Word Puzzle</title>
+    <title>HoneyBee</title>
 </head>
 <body>
 <div class="bodyDiv">
-<!-- nav bar -->
-    <nav class="navbar mb-6" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <h1 class="navbar-item is-size-3 is-responsive" href="">Release the Bees
-            <!-- <img class="navbar-item" src="" height="200" width="200" > -->
-          </h1>
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
-            <a class="navbar-item">
-              Documentation
-            </a>
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-warning is-light">
-                  <strong>Sign up</strong>
+  <div class="bodyImage">
+    <!-- nav bar -->
+        <nav class="navbar mb-6" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+              <a class="navbar-item is-mobile-is-size-1 is-size-3 ml-1" href="/index.html"><h1>HoneyBee</h1></a>
+              <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item" href="/about.html">
+                  The Devs
                 </a>
-                <a class="button is-light">
-                  Log in
+                <a class="navbar-item" href="https://github.com/kristenbartel/word-puzzle">
+                  The Code
                 </a>
+              <div class="navbar-end">
+                <div class="navbar-item">
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </nav> <br>
-
+            </div>
+          </nav>
 
       <!-- Card Source -->
  <!-- https://bulmatemplates.github.io/bulma-templates/templates/modal-cards.html -->
 <!-- about us page -->
-   <h2 class="title is-2 columns features is-centered">Meet the Team</h2> <br>
-   <section class="container">
-     <div class="columns features is-centered">
-       <div class="column is-4">
-         <div class="card is-shady">
-           <div class="card-image">
-             <figure class="image is-4by3">
-               <img src="https://source.unsplash.com/6Ticnhs1AG0" alt="Placeholder image">
-             </figure>
-           </div>
-           <div class="card-content">
-             <div class="content">
-               <h4>Kristen Bartel</h4>
-               <p>Ut venenatis tellus in metus vulputate. Amet consectetur adipiscing elit pellentesque. Sed arcu non odio euismod lacinia at quis risus. Faucibus turpis in eu mi bibendum neque egestas cmonsu songue. Phasellus vestibulum lorem
-               sed risus.</p>            
-             </div>
-             <div class="columns features is-centered">
-               <a href="https://www.linkedin.com/in/kristen-bartel-ab0b3173/" target='_blank'><img src="https://img.icons8.com/fluency/48/000000/linkedin.png"/></a>
-               <a href="https://github.com/kristenbartel" target='_blank'><img src="https://img.icons8.com/color-glass/48/000000/github.png"/></a>
-             </div>
-           </div>
-         </div>
-       </div>
 
-       <div class="column is-4">
-          <div class="card is-shady">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://source.unsplash.com/6Ticnhs1AG0" alt="Placeholder image">
+<div class="leftSide columns is-centered">
+  <div class="rightSide column is-three-quarters box m-5">
+      <div class="box"> 
+        <p>HoneyBee is a spelling game built upon the FreeBee API, cloned from the New York Times Spelling Bee app. The game logic uses the API to renders all DOM elements for game play, checks user-input for accuracy and assigns points based on length of accurate inputs. The game logic continues by collecting the accurate inputs in a list and accumulating points as the list of accurate inputs grows. User inputs that are erroneous or do not follow game rules throw errors in the form of modals. Honey Bee was built using javaScript, DOM, HTML, CSS and Bulma.</p>
+      </div>
+  </div>
+</div>
+   <section class="section is-small">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="card card-equal-height">
+            <div class="card-image mt-5">
+              <figure class="image is-3by2">
+                <img src="images/headshot Bartel.jpg" alt="HeadShot_Bartel">
               </figure>
             </div>
             <div class="card-content">
-              <div class="content ">
-                <h4>Mohammad Darmussa</h4>
-                <p>Ut venenatis tellus in metus vulputate. Amet consectetur adipiscing elit pellentesque. Sed arcu non odio euismod lacinia at quis risus. Faucibus turpis in eu mi bibendum neque egestas cmonsu songue. Phasellus vestibulum lorem
-                sed risus.</p>
+              <h1 class="title has-text-centered">Kristen Bartel</h1>
+              <div class="content">
+                <p>Kristen initialized the projects concept and scope. She served as project manager where she worked with with team to write all the initial javaScript and manage the git workflow Kristen then focused on DOM manipulations, error handling. and took the lead on styling the interface.</p>  
               </div>
-              <div class="columns features is-centered ">
-               <a href="https://www.linkedin.com/in/mdarmussa/" target='_blank'><img src="https://img.icons8.com/fluency/48/000000/linkedin.png"/></a>
-               <a href="https://github.com/MDarmussa" target='_blank'><img src="https://img.icons8.com/color-glass/48/000000/github.png"/></a>
-              </div>
+            </div>
+            <div class="card-footer">
+              <p class="card-footer-item">
+                <span><a href="https://github.com/kristenbartel" target='_blank'>GitHub</a></span>
+              </p>
+              <p class="card-footer-item">
+                <span><a href="https://www.linkedin.com/in/kristen-bartel-ab0b3173/" target='_blank'>LinkedIn</a></span>
+              </p>
             </div>
           </div>
         </div>
-     </div>
-   </section>
-
-
+        <div class="column">
+          <div class="card card-equal-height">
+            <div class="card-image mt-5">
+              <figure class="image is-3by2">
+                <img src="images/headshot_Darmussa.JPG" alt="headshot_Darmussa">
+              </figure>
+            </div>
+            <div class="card-content">
+              <h1 class="title has-text-centered">Mohamed Darmussa</h1>
+              <div class="content">
+                <p>Mohammed assisted in refactoring the project to include additional game logic and DOM manipulation additional DOM manipulation. He then focused on the points conditionals, points accumulator and about us page. He assisted with styling and layout.</p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <p class="card-footer-item">
+                <span><a href="https://github.com/MDarmussa" target='_blank'>GitHub </a></span>
+              </p>
+              <p class="card-footer-item">
+                <span><a href="https://www.linkedin.com/in/mdarmussa/"target='_blank'>LinkedIn</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 <script src="./about.js"></script>
 </body>
 </html>
