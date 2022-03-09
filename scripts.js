@@ -136,3 +136,4 @@ let pointsFunction = function points(userAttempt) {
         }
 }
 
+
