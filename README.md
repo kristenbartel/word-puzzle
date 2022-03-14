@@ -1,6 +1,7 @@
 
+<p>
 ---Description---
-MysteryBee is a spelling game built upon the FreeBee API, which is a cloned from the New York Times Spelling Bee app.
+MysteryBee is a spelling game built upon the FreeBee API, which is a cloned from the New York Times Spelling Bee app.<br>
 
 ---tech stack---
 javaScript, DOM, HTML, CSS and Bulma
@@ -32,4 +33,5 @@ Conditions/Rules:
               Five	       5
               Six	       6
               Seven  	7
+</p>
 
