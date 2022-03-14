@@ -1,15 +1,20 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css";
+
 body {
     margin: 0;
     padding: 0;
     height: 100vh;
     width: 100vw;
 }
-.bodyDiv {
-    background-image: linear-gradient(315deg, #d99058 0%, #fcf0c4 74%);
-    height: 100%;
-    width: 100%;
-}
+
+.bodyDiv { 
+    background-image: ;
+    background: linear-gradient(315deg, #d99058 0%, #fcf0c4 74%) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 .bodyImage {
     background-image: url(/images/hex.png);
     object-fit: cover;
@@ -48,3 +53,5 @@ a {
      margin: 0 auto;
      margin-top: -3.5%;
  }
+
+ 
