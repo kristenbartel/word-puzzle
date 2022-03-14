@@ -5,38 +5,29 @@ body {
     height: 100vh;
     width: 100vw;
 }
-
 .bodyDiv {
     background-image: linear-gradient(315deg, #d99058 0%, #fcf0c4 74%);
     height: 100%;
     width: 100%;
 }
-
 .bodyImage {
     background-image: url(/images/hex.png);
     object-fit: cover;
     height: 100%;
     width: 100%;
 }
-
 h1 {
     font-family: 'Quicksand', sans-serif;
     color: rgb(69, 63, 54) !important;
     font-size: 10vw;
 }
-
 a {
     color: rgb(69, 63, 54) !important;
 }
-
-
 .navbar-start {
     display: flex;
     margin: auto;
 }
-
-
-
 .card-equal-height {
     display: flex;
     flex-direction: column;
