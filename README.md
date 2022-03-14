@@ -39,6 +39,6 @@ Conditions/Rules:
               Four	       1
               Five	       5
               Six	       6
-              Seven  	7
+              Seven         7
 
 
