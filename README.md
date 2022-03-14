@@ -30,7 +30,9 @@ Conditions/Rules:
        -input must be at least 4 characters in length
 
  Points:
+ 
        -Correct user inputs that follow the conditions accumulate points based on the length of the word. 
+       
               Word length	Points earned
               Four	       1
               Five	       5
